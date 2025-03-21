@@ -1,0 +1,12 @@
+services:
+  tiktok-live-recorder:
+    build: .
+    container_name: tiktok-live-recorder
+    restart: unless-stopped
+    environment:
+      - TLR_OUTPUT=data # relates to volumes
+      - TLR_MODE=automatic
+      - TLR_USERNAME=tiktok # change to tiktok username
+      - TLR_UPDATE_CHECK=false
+    volumes:
+      - ./data:/app/data
