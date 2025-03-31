@@ -84,6 +84,7 @@ $ python main.py -h
 
 - <a href="https://github.com/Michele0303/tiktok-live-recorder/blob/main/GUIDE.md#how-to-set-cookies">How to set cookies in cookies.json</a> 
 - <a href="https://github.com/Michele0303/tiktok-live-recorder/blob/main/GUIDE.md#how-to-get-room_id">How to get room_id</a> 
+- <a href="https://github.com/Michele0303/tiktok-live-recorder/blob/main/GUIDE.md#how-to-enable-upload-to-telegram">How to enable upload to telegram</a> 
 
 ## To-Do List 🔮
 
@@ -94,7 +95,7 @@ $ python main.py -h
 - [x] <b>Using a Proxy to Bypass Login Restrictions:</b> Implement the ability to use an HTTP proxy to bypass login restrictions in some countries (only to obtain the room ID).
 - [x] <b>Implement a Logging System:</b> Set up a comprehensive logging system to track activities and errors.
 - [x] <b>Implement Auto-Update Feature:</b> Create a system that automatically checks for new releases.
-- [ ] <b>Send Recorded Live Streams to Telegram:</b> Enable the option to send recorded live streams directly to Telegram.
+- [x] <b>Send Recorded Live Streams to Telegram:</b> Enable the option to send recorded live streams directly to Telegram.
 - [ ] <b>Save Chat in a File:</b> Allow saving the chat from live streams in a file.
 
 ## Legal ⚖️
