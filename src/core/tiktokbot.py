@@ -233,10 +233,24 @@ class TikTok:
         if 'This account is private' in data:
             raise UserLiveException(TikTokError.ACCOUNT_PRIVATE)
 
-        live_url_flv = data.get(
-            'data', {}).get('stream_url', {}).get('rtmp_pull_url', None)
+        stream_url = data.get('data', {}).get('stream_url', {})
 
-        if live_url_flv is None and data.get('status_code') == 4003110:
+        # TODO: Implement m3u8 support
+        #live_url_flv = stream_url.get('hls_pull_url', None)
+        #if not live_url_flv:
+
+        live_url_flv = (
+                stream_url.get('flv_pull_url', {}).get('FULL_HD1') or
+                stream_url.get('flv_pull_url', {}).get('HD1') or
+                stream_url.get('flv_pull_url', {}).get('SD2') or
+                stream_url.get('flv_pull_url', {}).get('SD1')
+        )
+        
+        # if flv_pull_url is not available, use rtmp_pull_url
+        if not live_url_flv:
+            live_url_flv = stream_url.get('rtmp_pull_url', None)
+
+        if not live_url_flv and data.get('status_code') == 4003110:
             raise UserLiveException(TikTokError.LIVE_RESTRICTION)
 
         logger.info(f"LIVE URL: {live_url_flv}\n")
