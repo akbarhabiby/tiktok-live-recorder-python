@@ -118,6 +118,7 @@ def validate_and_parse_args():
     args.room_id = os.getenv("TLR_ROOM_ID") or args.room_id
     args.duration = int(os.getenv("TLR_DURATION", 0)) or args.duration
     args.mode = os.getenv("TLR_MODE") or args.mode
+    args.update_check = str(os.getenv("TLR_UPDATE_CHECK")).lower() in ("1", "true", "yes", "on") if os.getenv("TLR_UPDATE_CHECK") is not None else args.update_check
 
     if not args.user and not args.room_id and not args.url:
         raise ArgsParseError("Missing URL, username, or room ID. Please provide one of these parameters.")
